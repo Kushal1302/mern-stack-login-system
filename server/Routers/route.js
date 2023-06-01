@@ -6,21 +6,21 @@ router.post('/register' , async (req , res) => {
     try {
         const {name , phone , email , password , cpassword} = req.body
         if(!name || !phone || !email || !password || !cpassword){
-            return res.status(400).json("Form pura bharo")
+            return res.send({message:"Fill Complete Form"})
         }else{
             const checkData = await User.findOne({email:email})
            
             if(checkData != null){
-                return res.status(300).json({error:"Email Already Exists"})
+                return res.send({message:"Email Already exists"})
 
             }else{
                 if(password === cpassword){
                     const postData = await new User(req.body)
                     await postData.save()
-                    return res.status(200).json(postData)
+                    return res.send({message:"Register Successfull"})
                     console.log("Data Successfully Inserted")
                 }else{
-                    return res.status(500).json({error:"both are Diffrent Password"})
+                    return res.send({message:"Enter Same Password"})
                 }
             }
             
@@ -33,13 +33,13 @@ router.post('/login' , async(req , res) => {
     try {
         const {email , password} = req.body
         if(!email || !password){
-            return res.status(400).json({error:"Form Pura bharo"})
+            return res.send({message:"Fill Complete Form"})
         }else{
             const checkData = await User.findOne({email:email , password:password})
             if(checkData != null){
-               return res.status(200).json(checkData.name)
+               return res.send({message:"Login SuccessFull" , user:checkData})
             }else{
-                return res.status(400).json({error:"Invalid Credentials or Email Not Registered"})
+                return res.send({message:"Invalid Credentials or Email Not Registered"})
             }
         }
         
