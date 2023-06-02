@@ -1,12 +1,13 @@
 import {AppBar , Box ,IconButton , Typography  , Toolbar} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu'
 const toolStyle = {
-    background: '#e0e0e0'
+    background: '#c5aa6a'
 }
 const brand = {
     fontSize :'20px',
-    color:'maroon',
-    fontWeight:'700'
+    color:'white',
+    fontWeight:'20px',
+    marginLeft:'10px'
 }
 
 const Navbar = ({openClose}) => {

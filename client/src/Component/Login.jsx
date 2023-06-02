@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react"
+import {  useState , useEffect } from "react"
 import { getUser } from "../services/api"
-import { useNavigate } from "react-router-dom"
+import { useNavigate  } from "react-router-dom"
 const loginStyle = {textAlign:'center' , 
 margin:'50px auto 0 auto' , 
 width:'50%',
 borderRadius: '50px',
-background: '#e0e0e0',
+background: '#f7e0ca',
 boxShadow:  "20px 20px 60px #bebebe,-20px -20px 60px #ffffff",
 height:'400px',
 padding:'30px',
@@ -52,6 +52,7 @@ const Login = ({setUserDetails}) => {
           window.alert(res.data.message)
           if(res.data.message  === 'Login SuccessFull'){
             localStorage.setItem('login' , 'true')
+            localStorage.setItem('name' , res.data.user.name)
             setUserDetails(res.data.user)
             navigate('/home')
           }
@@ -68,23 +69,25 @@ const Login = ({setUserDetails}) => {
         console.log(logindata)
     }
     return (<>
-    <div style={loginStyle}>
-        <h1>Login</h1>
-    <form method="POST" onSubmit={onFormSubmit}>
-            <div className="name">
-                <input type="text" name="email" style={inputStyle} placeholder="Enter Email Id.." onChange={onInputchange}/>
+    
+                    <div style={loginStyle}>
+                        <h1>Login</h1>
+                        <form method="POST" onSubmit={onFormSubmit}>
+                            <div className="name">
+                                <input type="text" name="email" style={inputStyle} placeholder="Enter Email Id.." onChange={onInputchange}/>
 
-            </div>
-            <div className="name">
-                <input type="number" name="password" style={inputStyle} placeholder="Enter Password.." onChange={onInputchange}/>
-                
-            </div>
-            <div className="name">
-                <input type="submit" name="email" style={buttonStyle} value='Login'/>
-                
-            </div>
-    </form>
-    </div>
+                            </div>
+                            <div className="name">
+                                <input type="number" name="password" style={inputStyle} placeholder="Enter Password.." onChange={onInputchange}/>
+                                
+                            </div>
+                            <div className="name">
+                                <input type="submit" name="email" style={buttonStyle} value='Login'/>
+                                
+                            </div>
+                        </form>
+                </div>
+           
     </>)
 }
 export default Login

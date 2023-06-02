@@ -1,17 +1,17 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../services/api"
-const registerStyle = {
-    textAlign:'center' , 
-    margin:'50px auto 0 auto' ,
-     width:'50%',
-     borderRadius: '50px',
-background: '#e0e0e0',
-boxShadow:  "20px 20px 60px #bebebe,-20px -20px 60px #ffffff",
-height:'400px',
-padding:'30px',
-minWidth:'250px',
-minHeight:'400px'
+    const registerStyle = {
+        textAlign:'center' , 
+        margin:'50px auto 0 auto' ,
+        width:'50%',
+        borderRadius: '50px',
+        background: '#fce9e9',
+        boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+        height:'400px',
+        padding:'30px',
+        minWidth:'250px',
+        minHeight:'400px'
     
     }
     const inputStyle = {
@@ -31,7 +31,7 @@ minHeight:'400px'
         outline:'none',
         fontSize:' 16px',
         fontWeight: '700',
-        boxShadow: '0px 1px 2px #2B3044,0px 4px 16px #2B3044',
+        boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
         borderRadius: '9px',
         color: '#fff',
         lineHeight: '24px'

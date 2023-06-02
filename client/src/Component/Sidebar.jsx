@@ -3,9 +3,13 @@ import {Drawer } from '@mui/material';
 // import ListItem from '@mui/material/ListItem';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import { NavLink } from 'react-router-dom';
 const Sidebar = (props) => {
+
+    
+    
    
     return (<>
         <Drawer anchor={'left'} open={props.toggle}  onClose={props.toggle}
@@ -45,6 +49,8 @@ const Sidebar = (props) => {
         }} >
             <NavLink to={'/'} style={{fontWeight:'bold'}}> <HowToRegIcon/> Register Account</NavLink>
             <NavLink to={'/login'} style={{fontWeight:'bold'}}> <LoginIcon/> Login</NavLink>
+            <NavLink style={{fontWeight:'bold'}}> <LogoutIcon/> Logout</NavLink>
+
                 
         </Drawer>
     </>)
