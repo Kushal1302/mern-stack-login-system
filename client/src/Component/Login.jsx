@@ -34,7 +34,7 @@ const buttonStyle = {
         color: '#fff',
         lineHeight: '24px'
 }
-const Login = ({setUserDetails}) => {
+const Login = ({setUserDetails }) => {
     const [logindata  , setloginData] = useState({})
     const navigate = useNavigate()
     useEffect(() => {
@@ -70,6 +70,7 @@ const Login = ({setUserDetails}) => {
     }
     return (<>
     
+                   
                     <div style={loginStyle}>
                         <h1>Login</h1>
                         <form method="POST" onSubmit={onFormSubmit}>
@@ -87,6 +88,7 @@ const Login = ({setUserDetails}) => {
                             </div>
                         </form>
                 </div>
+                   
            
     </>)
 }

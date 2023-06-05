@@ -7,10 +7,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 import { NavLink } from 'react-router-dom';
 const Sidebar = (props) => {
-
-    
-    
-   
     return (<>
         <Drawer anchor={'left'} open={props.toggle}  onClose={props.toggle}
         hideBackdrop={true} variant='persistent' ModalProps={{
@@ -20,7 +16,7 @@ const Sidebar = (props) => {
             '& .MuiDrawer-paper':
             {
                 marginTop:'64px',
-            background:"#f5f5f5",
+            background:props.theme.backgroundColor,
             width:250,
             height:'calc(100vh - 64px)',
             borderRight:'none',
@@ -34,7 +30,7 @@ const Sidebar = (props) => {
                 fontWeight:"70",
                 textDecoration:'none',
                 listStyle:'none',
-                color:'black',
+                color:props.theme.color,
                 padding:'10px 0 0 10px',
                 '& > svg':{
                     marginRight:'5px',

@@ -18,6 +18,22 @@ function App() {
       toggle?setToggle(false):setToggle()
     }
   }
+  const [theme , setTheme] = useState({
+    backgroundColor:"#f5f5f5",
+    color:'black'
+  })
+  const enableDark = () => {
+    // console.log("click")
+    theme.backgroundColor === '#f5f5f5'?setTheme({
+      backgroundColor:"black",
+    color:'white'
+    }):setTheme({
+      backgroundColor:"#f5f5f5",
+    color:'black'
+    })
+    
+
+  }
   const openClose = () => {
      toggle?setToggle(false):setToggle(true)
   }
@@ -25,16 +41,18 @@ function App() {
 
   return (
   <>
-  <Navbar openClose={openClose}/>
-  <Sidebar toggle = {toggle} />
- 
-   
-    <Routes>
+  
+    <Navbar openClose={openClose} enableDark={enableDark} theme={theme}/>
+    <Sidebar toggle = {toggle} theme={theme} />
+  
+    
+      <Routes>
 
-      <Route path='/home' element={(userDetails && userDetails._id) || value === 'true' ? <Home/> : <Login/>}/>
-      <Route path='/' element={<Register/>}/>
-      <Route path='/login' element={<Login setUserDetails = {setUserDetails}/>}/>
-    </Routes>
+        <Route path='/home' element={(userDetails && userDetails._id) || value === 'true' ? <Home/> : <Login/>}/>
+        <Route path='/' element={<Register/>}/>
+        <Route path='/login' element={<Login setUserDetails = {setUserDetails} />}/>
+      </Routes>
+ 
 
     </>
   );
